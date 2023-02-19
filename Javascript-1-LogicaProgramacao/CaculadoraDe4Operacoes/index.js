@@ -5,8 +5,11 @@ Escreva um programa em js que permita inserir dois valores numéricos e então c
 Após calcular os resultados o programa deve exíbi-los na tela 
 */
 
-const primeiroNumero = parseFloat(prompt("Digite primeiro numero:"));
-const segundoNumero = parseFloat(prompt("Digite segundo numero:"));
+const primeiraEntrada = prompt("Digite primeiro numero");
+const segundaEntrada = prompt("Digite segundo numero");
+
+const primeiroNumero = parseFloat(primeiraEntrada);
+const segundoNumero = parseFloat(segundaEntrada);
 
 const soma = primeiroNumero + segundoNumero;
 const subtracao = primeiroNumero - segundoNumero;
