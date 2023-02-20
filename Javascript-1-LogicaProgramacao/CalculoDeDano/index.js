@@ -30,7 +30,7 @@ const escudoPersonagem = prompt("Defensor possui escudo?:");
 
 
 const atacanteGanhaDefensorSemEscudo =
-personagemAtacante > poderDefesaDefensor && escudoPersonagem === "Não";
+poderAtaquePersonagemAtacante > poderDefesaDefensor && escudoPersonagem === "Não";
 const atacanteGanhaDefensorTemEscudo =
 personagemAtacante > poderDefesaDefensor && escudoPersonagem === "Sim";
 const naoCausaDano = personagemAtacante === poderDefesaDefensor;
@@ -38,7 +38,7 @@ const naoCausaDano = personagemAtacante === poderDefesaDefensor;
 const dano = 0;
 
 if (atacanteGanhaDefensorSemEscudo) {
-  dano = personagemAtacante - poderDefesaDefensor;
+  dano = poderAtaquePersonagemAtacante - poderDefesaDefensor;
   alert(`
     informações personagens :
 
@@ -52,7 +52,7 @@ if (atacanteGanhaDefensorSemEscudo) {
     dano sofrido: ${dano}
   `);
 } else if (atacanteGanhaDefensorTemEscudo) {
-  dano = personagemAtacante - poderDefesaDefensor / 2;
+  dano = poderAtaquePersonagemAtacante - poderDefesaDefensor / 2;
   alert(`
   informações personagens :
 
