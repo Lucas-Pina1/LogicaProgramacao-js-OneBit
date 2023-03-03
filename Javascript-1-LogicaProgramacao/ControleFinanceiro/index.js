@@ -4,16 +4,12 @@
 
 let opcaoMenu = 3;
 
-let saldo = parseFloat(
-  prompt("Qual e a quantidade de dinheiro disponível?")
-);
+let saldo = parseFloat(prompt("Qual e a quantidade de dinheiro disponível?"));
 
 do {
-  let dinheiroTotal = saldo;
-
   opcaoMenu = parseFloat(
     prompt(`
-Dinheiro disponivel : R$ ${dinheiroTotal}
+Dinheiro disponivel : R$ ${saldo}
 
 - Escolha uma opção:
   1 - Adicionar dinehiro
@@ -24,20 +20,21 @@ Dinheiro disponivel : R$ ${dinheiroTotal}
 
   switch (opcaoMenu) {
     case 1:
-      let adicionarDinheiro = parseFloat(
+      let adicionarValorEmDinheiro = parseFloat(
         prompt("Deseja adicionar qual quantia em dinheiro?")
       );
-      dinheiroTotal = saldo + adicionarDinheiro;
+      saldo += adicionarValorEmDinheiro;
       break;
     case 2:
-      let removerDinheiro = parseFloat(
-        prompt("Deseja adicionar qual quantia em dinheiro?")
+      let removerValorEmDinheiro = parseFloat(
+        prompt("Deseja remover qual quantia em dinheiro?")
       );
-      dinheiroTotal = saldo - removerDinheiro;
+      saldo -= removerValorEmDinheiro;
       break;
     case 3:
       alert("Voçe escolheu encerrar");
       alert("O sistema está sendo encerrado...");
+      break;
     default:
       alert("Opção invalida!");
       break;
