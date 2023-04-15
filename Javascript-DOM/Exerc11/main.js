@@ -1,23 +1,35 @@
 function addPlayer() {
-  const lineupPlayersSection = document.getElementById("lineup-players");
+  const position = document.getElementById("position").value;
+  const name = document.getElementById("name").value;
+  const playerNumber = document.getElementById("playerNumber").value;
 
-  const h3 = document.createElement("h3");
-  h3.innerText = "jogadores";
+  const confirmation = confirm(
+    `Escalar ${name} - camisa ${playerNumber} como ${position} ?`
+  );
 
-  const ul = document.createElement("ul");
+  if (confirmation) {
+    const teamList = document.getElementById("teamList");
+    const playerItem = document.createElement("li");
 
-  const playerPositionsLi = document.createElement("li");
-  playerPositionsLi.innerText = "posição: ";
+    playerItem.id = `player-${playerNumber}`;
+    playerItem.innerHTML = `${position} : ${name} (camisa - ${playerNumber})`;
+    teamList.appendChild(playerItem);
 
-  const playerPositionsInput = document.createElement("input");
-  playerPositionsInput.type = "text";
-  playerPositionsInput.name = "posição";
-  playerPositionsLi.appendChild(playerPositionsInput);
-  ul.appendChild(playerPositionsLi);
-  ul.appendChild(document.createElement("br"));
+    document.getElementById("position").value = "";
+    document.getElementById("name").value = "";
+    document.getElementById("playerNumber").value = "";
+  }
 }
 
-// function createCustomElement(elemnt, text) {
-//   document.createElement(`${elemnt}`);
-//   elemnt.innerText = `${text}`
-// }
+function removePlayer() {
+  const numberToRemove = document.getElementById("numberToRemove").value;
+  const playerToRemove = document.getElementById(`player-${numberToRemove}`);
+
+  const confirmation = confirm(`Remover o jogador ${playerToRemove} ?`);
+
+  if (confirmation) {
+    // document.getElementById("teamList").removeChild(playerToRemove);
+    playerToRemove.remove();
+    document.getElementById("numberToRemove").value = "";
+  }
+}
